@@ -56,12 +56,17 @@ class LoginActivity : AppCompatActivity() {
             .requestEmail()
             .build()
 
+
+
+
+
         googleSignInClient = GoogleSignIn.getClient(this, gso)
         // [END config_signin]
 
         // [START initialize_auth]
         // Initialize Firebase Auth
         auth = Firebase.auth
+
         // [END initialize_auth]
     }
 

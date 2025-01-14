@@ -75,7 +75,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun logout() : Boolean{
-        FirebaseAuth.getInstance().signOut() // Cierra la sesión en Firebase
+
+        var _auth = FirebaseAuth.getInstance()
+        _auth.signOut()
+
+
 
         val intent = Intent(this, LoginActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
