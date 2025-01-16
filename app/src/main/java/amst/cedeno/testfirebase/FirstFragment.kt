@@ -53,17 +53,16 @@ class FirstFragment : Fragment() {
 
         var isChecked = false
 
-        binding.btnEnviar.setOnClickListener {
-            isChecked = !isChecked // Alterna entre true y false
-            databaseRef.child("campoboton").setValue(isChecked)
-            databaseRef.child("campo1").setValue(editTextVal.text.toString())
+        binding.btnEnviar.setOnClickListener { //lo que se realiza al presionar el boton
+            databaseRef.child("campoboton").setValue(true) //cambia a true la variable campoboton de la database
+            databaseRef.child("campo1").setValue(editTextVal.text.toString()) //obtiene el valor del EditText para enviarlo a la variable campo1 de la database
         }
 
         // Escuchar los datos en tiempo real
         databaseRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                // Leer los valores del snapshot
-                val campo1 = snapshot.child("campo1").getValue(String::class.java)
+                // Leer los valores del snapshot y lo agrega al textView de la app
+                val campo1 = snapshot.child("campo1").getValue(String::class.java) //se cambio Int por String porque asi se definió en la database
 
                 // Actualizar los TextViews con los valores obtenidos
                 textViewCampo1.text = "Campo 1: ${campo1 ?: "N/A"}"
