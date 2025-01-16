@@ -11,52 +11,54 @@
         android:layout_height="match_parent"
         android:padding="16dp">
 
-        <Button
-            android:id="@+id/button_first"
-            android:layout_width="93dp"
-            android:layout_height="52dp"
-            android:text="@string/next"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Space
-            android:layout_width="253dp"
-            android:layout_height="180dp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="16dp" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_first"
             tools:layout_editor_absoluteX="16dp">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="130dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Establecer valor:"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/editTextValor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Name" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="85dp" />
+
+            <Button
+                android:id="@+id/btnEnviar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enviar" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="85dp" />
 
             <TextView
                 android:id="@+id/textViewCampo1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="8dp"
                 android:text="Campo 1:"
-                android:textSize="18sp"
-                android:padding="8dp" />
+                android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/textViewCampo2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Campo 2:"
-                android:textSize="18sp"
-                android:padding="8dp" />
-
-            <TextView
-                android:id="@+id/textViewCampo3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Campo 3:"
-                android:textSize="18sp"
-                android:padding="8dp" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

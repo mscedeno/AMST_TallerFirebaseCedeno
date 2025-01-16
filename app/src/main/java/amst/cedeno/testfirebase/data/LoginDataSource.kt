@@ -1,6 +1,6 @@
-package amst.cedeno.testfirebase.data
+package amst.tallerfirebase.cedeno.data
 
-import amst.cedeno.testfirebase.data.model.LoggedInUser
+import amst.tallerfirebase.cedeno.data.model.LoggedInUser
 import java.io.IOException
 
 /**

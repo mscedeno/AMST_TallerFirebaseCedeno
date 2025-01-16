@@ -1,4 +1,4 @@
-package amst.cedeno.testfirebase
+package amst.tallerfirebase.cedeno
 
 import org.junit.Test
 

@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "amst.cedeno.testfirebase"
+    namespace = "amst.tallerfirebase.cedeno"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "amst.cedeno.testfirebase"
+        applicationId = "amst.tallerfirebase.cedeno"
         minSdk = 28
         targetSdk = 34
         versionCode = 1

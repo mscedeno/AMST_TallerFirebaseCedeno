@@ -1,4 +1,4 @@
-package amst.cedeno.testfirebase
+package amst.tallerfirebase.cedeno
 
 import android.content.Intent
 import android.os.Bundle

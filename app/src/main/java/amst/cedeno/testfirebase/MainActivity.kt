@@ -1,4 +1,4 @@
-package amst.cedeno.testfirebase
+package amst.tallerfirebase.cedeno
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
@@ -9,7 +9,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
-import amst.cedeno.testfirebase.databinding.ActivityMainBinding
+import amst.tallerfirebase.cedeno.databinding.ActivityMainBinding
 
 import android.app.Activity
 import android.content.Intent

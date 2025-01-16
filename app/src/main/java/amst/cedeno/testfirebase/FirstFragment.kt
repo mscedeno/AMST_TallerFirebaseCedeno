@@ -1,4 +1,4 @@
-package amst.cedeno.testfirebase
+package amst.tallerfirebase.cedeno
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import amst.cedeno.testfirebase.databinding.FragmentFirstBinding
+import amst.tallerfirebase.cedeno.databinding.FragmentFirstBinding
+import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -23,8 +25,8 @@ class FirstFragment : Fragment() {
 
     private lateinit var databaseRef: DatabaseReference
     private lateinit var textViewCampo1: TextView
-    private lateinit var textViewCampo2: TextView
-    private lateinit var textViewCampo3: TextView
+    private lateinit var buttonEnviar: Button
+    private lateinit var editTextVal: EditText
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -46,25 +48,25 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
         textViewCampo1 =  _binding!!.textViewCampo1
-        textViewCampo2 =  _binding!!.textViewCampo2
-        textViewCampo3 =  _binding!!.textViewCampo3
+        editTextVal =  _binding!!.editTextValor
+
+        var isChecked = false
+
+        binding.btnEnviar.setOnClickListener {
+            isChecked = !isChecked // Alterna entre true y false
+            databaseRef.child("campoboton").setValue(isChecked)
+            databaseRef.child("campo1").setValue(editTextVal.text.toString())
+        }
 
         // Escuchar los datos en tiempo real
         databaseRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 // Leer los valores del snapshot
-                val campo1 = snapshot.child("campo1").getValue(Int::class.java)
-                val campo2 = snapshot.child("campo2").getValue(Int::class.java)
-                val campo3 = snapshot.child("campo3").getValue(Int::class.java)
+                val campo1 = snapshot.child("campo1").getValue(String::class.java)
 
                 // Actualizar los TextViews con los valores obtenidos
                 textViewCampo1.text = "Campo 1: ${campo1 ?: "N/A"}"
-                textViewCampo2.text = "Campo 2: ${campo2 ?: "N/A"}"
-                textViewCampo3.text = "Campo 3: ${campo3 ?: "N/A"}"
             }
 
             override fun onCancelled(error: DatabaseError) {
